@@ -12,7 +12,23 @@ on:
         default: 'main'
 
 jobs:
+  ci:
+    runs-on: ubuntu-latest
+    name: Quick CI checks
+    outputs:
+      docs-exists: ${{ steps.check_docs.outputs.exists }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check docs folder exists
+        id: check_docs
+        run: |
+          if [ -f ./docs/index.html ]; then echo "exists=true"; else echo "exists=false"; fi
+          if [ "$(cat ./docs/index.html 2>/dev/null | head -n1 | grep -i '<!doctype' || true)" = "" ]; then echo "doctype_missing=true"; else echo "doctype_missing=false"; fi
+
   deploy:
+    needs: ci
     runs-on: ubuntu-latest
     name: Upload and deploy docs/
     steps:

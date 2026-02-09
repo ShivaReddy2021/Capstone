@@ -12,7 +12,19 @@ on:
         default: 'main'
 
 jobs:
+  ci:
+    runs-on: ubuntu-latest
+    name: Quick CI checks
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check docs folder exists
+        run: |
+          if [ -f ./docs/index.html ]; then echo "docs exists"; else echo "docs/index.html not found"; exit 1; fi
+
   deploy:
+    needs: ci
     runs-on: ubuntu-latest
     name: Deploy docs to Cloudflare Pages
     steps:
