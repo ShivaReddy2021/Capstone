@@ -43,6 +43,28 @@ Setup steps:
 	- `CLOUDFLARE_PROJECT_NAME` — Pages project name (the Pages site name in Cloudflare).
 4. Push to `main` or any `feature_*` branch (the workflow triggers on those pushes), or run the workflow manually from Actions and set the `ref` input to your branch.
 
+Release branches
+
+This repository is prepared so both feature and release branches can trigger deployments. Use these naming patterns:
+- Feature branches: `feature_xxx` or under `feature/xxx` (e.g. `feature_02/09.26` or `feature/new-homepage`)
+- Release branches: `release_xxx` or under `release/xxx` (e.g. `release_1.0` or `release/v1.0`)
+
+To deploy a release branch:
+1. Push your release branch to GitHub:
+
+```powershell
+git checkout -b release_1.0
+git add .
+git commit -m "Prepare release 1.0"
+git push origin release_1.0
+```
+
+2. The Cloudflare Pages workflow (`deploy-cloudflare.yml`) or the GitHub Pages workflow (`deploy-pages.yml`) will run automatically for release branches. You can also run them manually from the Actions tab selecting the workflow and providing the `ref` input (enter the release branch name).
+
+Branch previews and production:
+- If you connect Cloudflare Pages directly to GitHub (Option A), branch and PR previews are automatic.
+- Using the Actions-based deployment (Option B) with the API token also supports deploying release branches — the workflow checks out and deploys the chosen branch's `docs/` folder.
+
 Notes:
 - Alternatively, you can connect Cloudflare Pages directly to GitHub in the Cloudflare dashboard and enable automatic deploys and branch previews without creating the token or action — that is often easier and provides preview deployments for pull requests.
 - The included workflow deploys the `./docs` folder. If you prefer `smrbuilders` instead, edit the `directory:` input in the workflow to `./smrbuilders`.

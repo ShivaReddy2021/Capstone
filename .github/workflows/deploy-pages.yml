@@ -2,8 +2,8 @@ name: Deploy site to GitHub Pages
 
 on:
   push:
-    # deploy when main or feature branches are pushed
-    branches: [ main, 'feature_*', 'feature/**' ]
+    # deploy when main, feature, or release branches are pushed
+    branches: [ main, 'feature_*', 'feature/**', 'release_*', 'release/**', 'release/*' ]
   workflow_dispatch:
     inputs:
       ref:
