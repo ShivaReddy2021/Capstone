@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480">
+  <rect width="100%" height="100%" fill="#eef3f6"/>
+  <g fill="#c2d1d9">
+    <rect x="80" y="60" width="640" height="320" rx="10"/>
+    <rect x="110" y="100" width="240" height="220" rx="8"/>
+    <rect x="380" y="100" width="320" height="220" rx="8"/>
+  </g>
+  <text x="50%" y="440" font-family="Segoe UI, Roboto, Arial" font-size="18" fill="#7b8c95" text-anchor="middle">Structural Works — sample image</text>
+</svg>

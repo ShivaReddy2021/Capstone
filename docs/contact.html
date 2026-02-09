@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Contact — SMRbuilders</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html">
+          <img src="assets/logo.svg" alt="SMRbuilders logo" class="logo">
+          <span>SMRbuilders</span>
+        </a>
+        <nav class="nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="projects.html">Projects</a>
+          <a href="contact.html" class="cta">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <h1>Contact Us</h1>
+      <p>Ready to start a project or need a quote? Contact our team.</p>
+
+      <section class="contact-grid">
+        <!-- Formspree placeholder. Replace {your_form_id} with your Formspree ID -->
+        <form class="contact-form" action="https://formspree.io/f/{your_form_id}" method="post">
+          <label for="name">Name</label>
+          <input id="name" name="name" required>
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+
+          <input type="hidden" name="_subject" value="New contact from smrbuilders site">
+          <input type="hidden" name="_captcha" value="false">
+          <button class="btn" type="submit">Send Message</button>
+        </form>
+
+        <aside class="contact-info">
+          <h3>Office</h3>
+          <p>SMRbuilders<br>123 Builder Lane<br>City, State</p>
+          <p>Email: <a href="mailto:info@smrbuilders.example">info@smrbuilders.example</a><br>Phone: (000) 123-4567</p>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">© <span id="year-contact"></span> SMRbuilders</div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
